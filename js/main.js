@@ -1,6 +1,3 @@
-
-// js/main.js
-
 import * as THREE from './libs/three.module.min.js';
 
 // ==== Scene Setup ====
@@ -159,4 +156,3 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();
-
