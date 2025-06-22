@@ -9,6 +9,14 @@
   Timestamp: 2025-06-21 18:50 | File: js/sceneSetup.js
 */
 
+import {
+  addHouses,
+  addTrees,
+  addBenches,
+  addStreetlights
+} from './js/townBuilder.js';
+
+
 let benches = [];
 let indoorGroup, sofa, bed;
 
