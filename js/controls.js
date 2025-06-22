@@ -3,10 +3,28 @@
 
 let moveX = 0; let moveZ = 0; let sitAction = 0;
 
-export function setupControls() { document.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') moveX = -1; if (e.key === 'ArrowRight') moveX = 1; if (e.key === 'ArrowUp') moveZ = -1; if (e.key === 'ArrowDown') moveZ = 1; if (e.key === 's') sitAction = 1; });
+export function setupControls() {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') moveX = -1;
+    if (e.key === 'ArrowRight') moveX = 1;
+    if (e.key === 'ArrowUp') moveZ = -1;
+    if (e.key === 'ArrowDown') moveZ = 1;
+    if (e.key === 's') sitAction = 1;
+  });
 
-document.addEventListener('keyup', (e) => { if (['ArrowLeft','ArrowRight'].includes(e.key)) moveX = 0; if (['ArrowUp','ArrowDown'].includes(e.key)) moveZ = 0; if (e.key === 's') sitAction = 0; }); }
+  document.addEventListener('keyup', (e) => {
+    if (['ArrowLeft', 'ArrowRight'].includes(e.key)) moveX = 0;
+    if (['ArrowUp', 'ArrowDown'].includes(e.key)) moveZ = 0;
+    if (e.key === 's') sitAction = 0;
+  });
+}
 
-export function getControlState() { return { moveX, moveZ, sitAction }; }
+export function getControlState() {
+  return { moveX, moveZ, sitAction };
+}
+
+export function toggleSitAction() {
+  sitAction = sitAction === 1 ? 0 : 1;
+}
 
 
