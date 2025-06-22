@@ -14,7 +14,7 @@ import {
   addTrees,
   addBenches,
   addStreetlights
-} from './js/townBuilder.js';
+} from './townBuilder.js';
 
 let benches = [];
 let indoorGroup, sofa, bed;
