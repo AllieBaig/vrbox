@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       camera.lookAt(0, 0, -200);
     }
 
+    updateActionState(moveX, moveZ, sitAction);
     recordStep();
     renderer.render(scene, camera);
   }
