@@ -1,9 +1,6 @@
-
-// js/main.js
-
 import * as THREE from './libs/three.module.min.js';
 
-// ==== Scene Setup ====
+// ===== Scene Setup =====
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xa0c8f0);
 
@@ -28,7 +25,7 @@ scene.add(dirLight);
 
 // Ground
 const textureLoader = new THREE.TextureLoader();
-const groundTexture = textureLoader.load("../textures/grass.jpg");
+const groundTexture = textureLoader.load('../textures/grass.jpg');
 groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
 groundTexture.repeat.set(8, 8);
 
@@ -145,7 +142,19 @@ function recordStep() {
     currentEpisode.rewards.push(reward);
 }
 
-// Main loop
+function exportEpisodes() {
+    const dataStr = JSON.stringify([currentEpisode]);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "hybrid_episodes.json";
+    a.click();
+}
+
+// Bind export button inside module scope
+document.getElementById("exportButton").addEventListener("click", exportEpisodes);
+
 function animate() {
     requestAnimationFrame(animate);
     character.position.x += moveDirection * 0.2;
