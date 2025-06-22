@@ -15,6 +15,8 @@ import { createScene, getSceneObjects } from './sceneSetup.js';
 import { createHumanoid } from './humanoid.js';
 import { setupControls, getControlState } from './controls.js';
 import { setupRecorder, recordStep, exportEpisodes, updateActionState } from './recorder.js';
+import { handleJoystick, getJoystickState } from './joystickControls.js';
+
 
 export function init() {
   const { scene, camera, renderer } = createScene(THREE);
