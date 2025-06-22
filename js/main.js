@@ -1,6 +1,9 @@
 
 import * as THREE from './libs/three.module.min.js';
 
+document.getElementById("exportButton").addEventListener("click", exportEpisodes);
+
+
 // ===== Config =====
 const CAMERA_START_POSITION = { x: 0, y: 80, z: 100 };
 const CAMERA_LOOKAT_POSITION = { x: 0, y: 0, z: -100 };
@@ -214,7 +217,6 @@ function exportEpisodes() {
     a.click();
 }
 
-document.getElementById("exportButton").addEventListener("click", exportEpisodes);
 
 // ===== Animation Loop =====
 function animate() {
