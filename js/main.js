@@ -13,7 +13,7 @@ import { createScene, getSceneObjects } from './sceneSetup.js';
 import { createHumanoid } from './humanoid.js';
 import { setupControls, getControlState } from './controls.js';
 import { setupCameraControls } from './cameraControls.js';
-import { setupRecorder, recordStep, exportEpisodes } from './recorder.js';
+import { setupRecorder, recordStep, exportEpisodes, updateActionState } from './recorder.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
