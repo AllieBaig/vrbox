@@ -36,7 +36,8 @@ export function setupCameraControls(camera) {
 
   if (zoomInBtn) {
     zoomInBtn.addEventListener("click", () => {
-      radius = Math.max(20, radius - 10);
+      radius = Math.max(5, radius - 10);
+      //radius = Math.max(20, radius - 10);
       applyCameraRotation();
     });
   }
