@@ -1,0 +1,101 @@
+
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VRBox v9.2 with Joystick</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nipplejs@0.9.0/dist/nipplejs.min.css" />
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+      background: #000;
+    }canvas {
+  display: block;
+}
+
+#ui-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+}
+
+#ui-controls button {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#ui-controls button:hover {
+  background: #ccc;
+}
+
+#error-message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+  font-size: 14px;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  z-index: 10;
+  display: none;
+}
+
+#joystick-container {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 150px;
+  height: 150px;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  #ui-controls {
+    flex-direction: row;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div id="error-message">⚠️ Three.js module failed to load</div>  <div id="ui-controls">
+    <button id="btn-sit">🪑 Sit</button>
+    <button id="btn-zoom-in">🔍➕</button>
+    <button id="btn-zoom-out">🔍➖</button>
+    <button id="btn-export">📤 Export</button>
+  </div>  <div id="joystick-container"></div>  
+  
+  <script src="./libs/nipplejs.min.js"></script>
+  <script type="module">
+    import * as THREE from './libs/three.module.min.js';
+
+    try {
+      import('./js/main.js').then(module => {
+        module.init(THREE);
+      });
+    } catch (e) {
+      document.getElementById('error-message').style.display = 'block';
+      console.error("Module load error:", e);
+    }
+  </script>  <script type="module">
+    import { handleJoystick } from './js/joystickControls.js';
+    handleJoystick('joystick-container');
+  </script></body>
+</html>
