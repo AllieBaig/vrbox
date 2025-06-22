@@ -1,6 +1,7 @@
 
 
-import nipplejs from './libs/nipplejs.module.min.js';
+// Use the wrapper module that exposes the globally loaded nipplejs
+import nipplejs from './libs/nipplejs.module.js';
 
 /* Purpose: Handle virtual joystick controls using nipplejs for VRBox v9.3 Key features: Maps analog joystick movement to RL movement state (moveX, moveZ) Dependencies: nipplejs.min.js (loaded globally in index.html) Related helpers: controls.js, main.js Function names: handleJoystick, getJoystickState MIT License: https://github.com/AllieBaig/vrbox/blob/main/LICENSE Timestamp: 2025-06-22 20:30 | File: js/joystickControls.js */
 
