@@ -1,7 +1,7 @@
 
 /* Purpose: Entry point for VRBox v9.3 with full joystick integration Key features: Scene setup, joystick control, OrbitControls camera, smooth RL-ready movement Dependencies: three.module.min.js, OrbitControls.js, joystickControls.js Related helpers: sceneSetup.js, humanoid.js, controls.js, recorder.js Function names: animate, updateLoop MIT License: https://github.com/AllieBaig/vrbox/blob/main/LICENSE Timestamp: 2025-06-22 20:10 | File: js/main.js */
 
-import * as THREE from './libs/three.module.min.js'; import { OrbitControls } from './libs/OrbitControls.js'; import { handleJoystick, getJoystickState } from './joystickControls.js'; import { createScene, getSceneObjects } from './sceneSetup.js'; import { createHumanoid } from './humanoid.js'; import { setupControls, getControlState } from './controls.js'; import { setupRecorder, recordStep, exportEpisodes, updateActionState } from './recorder.js';
+import * as THREE from './libs/three.module.min.js'; import { OrbitControls } from './libs/OrbitControls.js'; import { handleJoystick, getJoystickState } from './joystickControls.js'; import { createScene, getSceneObjects } from './sceneSetup.js'; import { createHumanoid } from './humanoid.js'; import { setupControls, getControlState, toggleSitAction } from './controls.js'; import { setupRecorder, recordStep, exportEpisodes, updateActionState } from './recorder.js';
 
 document.addEventListener("DOMContentLoaded", () => { // Start joystick handleJoystick("joystick-container");
 
@@ -11,7 +11,7 @@ const humanoid = createHumanoid(THREE); scene.add(humanoid);
 
 setupControls(); setupRecorder(humanoid, benches, sofa, bed, indoorGroup);
 
-document.getElementById("btn-export").addEventListener("click", exportEpisodes); document.getElementById("btn-sit").addEventListener("click", () => sitActionToggle());
+document.getElementById("btn-export").addEventListener("click", exportEpisodes); document.getElementById("btn-sit").addEventListener("click", toggleSitAction);
 
 const controls = new OrbitControls(camera, renderer.domElement); controls.target.set(0, 0, -100); controls.enableDamping = true; controls.dampingFactor = 0.05; controls.rotateSpeed = 0.5; controls.zoomSpeed = 1.0; controls.maxPolarAngle = Math.PI / 2; controls.minDistance = 5; controls.maxDistance = 200; controls.update();
 
@@ -76,7 +76,6 @@ renderer.render(scene, camera);
 
 }
 
-function sitActionToggle() { const current = getControlState(); current.sitAction = (current.sitAction === 1) ? 0 : 1; }
 
 animate(); });
 
