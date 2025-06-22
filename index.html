@@ -1,37 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RL Hybrid Sandbox ES Module</title>
+  <title>VRBox RL Sandbox v5.5</title>
 
   <style>
-    body { margin: 0; overflow: hidden; }
+    body { margin: 0; overflow: hidden; font-family: sans-serif; }
     canvas { display: block; }
+
     #exportButton {
       position: absolute; top: 10px; left: 10px; z-index: 10;
       padding: 10px; background: white; border: 1px solid black; font-weight: bold;
     }
-    .control-btn {
-      position: absolute; bottom: 20px; width: 80px; height: 80px;
-      font-size: 24px; border: 2px solid black; background: white; border-radius: 50%; z-index: 10;
+
+    .control-bar {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 12px; z-index: 10;
     }
-    #leftBtn { left: 20px; }
-    #rightBtn { left: 120px; }
-    #sitBtn { left: 220px; }
+
+    .control-btn {
+      width: 70px; height: 70px;
+      font-size: 24px; border: 2px solid black; background: white; border-radius: 10px;
+    }
   </style>
 </head>
 <body>
 
   <button id="exportButton">Export</button>
-<button id="leftBtn" class="control-btn">&#8592;</button>
-<button id="rightBtn" class="control-btn">&#8594;</button>
-<button id="forwardBtn" class="control-btn">&#8593;</button>
-<button id="backwardBtn" class="control-btn">&#8595;</button>
-<button id="sitBtn" class="control-btn">Sit</button>
-  
+
+  <div class="control-bar">
+    <button id="leftBtn" class="control-btn">&#8592;</button>
+    <button id="rightBtn" class="control-btn">&#8594;</button>
+    <button id="forwardBtn" class="control-btn">&#8593;</button>
+    <button id="backwardBtn" class="control-btn">&#8595;</button>
+    <button id="sitBtn" class="control-btn">Sit</button>
+    <button id="camLeftBtn" class="control-btn">&#8634;</button>
+    <button id="camRightBtn" class="control-btn">&#8635;</button>
+  </div>
+
   <script type="module" src="js/main.js"></script>
 
 </body>
 </html>
-
