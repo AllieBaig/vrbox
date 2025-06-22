@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VRBox RL Sandbox v6.1 (Mobile Optimized)</title>
+
+  <style>
+    body { margin: 0; overflow: hidden; font-family: sans-serif; }
+    canvas { display: block; }
+
+    #exportButton {
+      position: absolute; top: 10px; left: 10px; z-index: 10;
+      padding: 10px; background: white; border: 1px solid black; font-weight: bold;
+    }
+
+    .control-bar {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .control-btn {
+      width: 80px;
+      height: 80px;
+      font-size: 32px;
+      border: 3px solid black;
+      background: white;
+      border-radius: 12px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="exportButton">Export</button>
+
+  <div class="control-bar">
+    <button id="leftBtn" class="control-btn">&#8592;</button>
+    <button id="rightBtn" class="control-btn">&#8594;</button>
+    <button id="forwardBtn" class="control-btn">&#8593;</button>
+    <button id="backwardBtn" class="control-btn">&#8595;</button>
+    <button id="sitBtn" class="control-btn">Sit</button>
+    <button id="camLeftBtn" class="control-btn">&#8634;</button>
+    <button id="camRightBtn" class="control-btn">&#8635;</button>
+    <button id="zoomInBtn" class="control-btn">+</button>
+    <button id="zoomOutBtn" class="control-btn">-</button>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
